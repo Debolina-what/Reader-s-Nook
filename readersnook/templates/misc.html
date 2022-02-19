@@ -1,0 +1,109 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Miscellaneous </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: linear-gradient(rgba(0, 0, 0, 0.75),rgba(0, 0, 0, 0.75)), url("/static/Images/current.jpg");
+}
+</style>
+
+<body>
+
+{% load static %}
+<div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card text-white bg-dark">
+                    <div class="card-header">
+                        <h2 class="fw-bold">Miscellaneous Books</h2>
+                    </div>
+                    <div class="card-body">
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            {{form.as_p}}
+                            <button type="submit" class="btn btn-outline-warning">
+                                ADD
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-8" >
+                <div class="card text-white bg-dark" >
+                    <div class="card-header">
+                        <h1 class="fw-bold">Your Miscellaneous List</h1>
+                    </div>
+
+                    <div class="card-body">
+                           {% if book %}
+                            <table class="table table-bordered table-striped text-white">
+                            <thead>
+                                <tr>
+                                    <th>Sr. No.</th>
+                                    <th>Book's Name</th>
+                                    <th>Book's Author</th>
+                                    <th>Genre</th>
+                                    <th>Description</th>
+<!--                                    <th>The Book</th>-->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for p in book %}
+                                    <tr>
+                                        <td>{{ p.id }} </td>
+                                        <td>{{ p.name }} </td>
+                                        <td>{{ p.author }} </td>
+                                        <td>{{ p.genre }} </td>
+                                        <td>{{ p.description }} </td>
+<!--                                        {% if p.image %}-->
+<!--                                            <td>-->
+<!--                                                <img src="{{ p.image.url }}" alt="" class="prod-size">-->
+<!--                                            </td>-->
+<!--                                        {% else %}-->
+<!--                                            <td>-->
+<!--                                                <img src="{% static 'images/product.jpg' %}" alt="" class="prod-size">-->
+<!--                                            </td>-->
+<!--                                        {% endif %}-->
+                                        <td>
+                                            <form action="{% url 'delete_mbook' p.id  %}" method="post" class="d-inline">
+                                                {% csrf_token %}
+                                                <input type="submit" class="btn btn-danger btn-sm" value="PICK">
+                                            </form>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+
+                            {% else %}
+                            <h4 class="text-center alert alert-warning">You are not Reading any book now!!</h4>
+                            {% endif %}
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+*{
+    margin: 0px;
+    padding: 0px;
+
+}
+
+.mr-auto, .mx-auto{
+    margin-right: 0px !important;
+    justify-content: space-between;
+    width: 200px;
+
+}

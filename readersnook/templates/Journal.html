@@ -1,0 +1,347 @@
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Reading Journal</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+        }
+
+        .navbar{
+            position: fixed;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.75),rgba(0, 0, 0, 0.75)),url("/static/Images/lib1.jpg");
+            padding: 25px;
+            width: 100%;
+            height: auto;
+        }
+
+        .logo{
+            width: 60px;
+            cursor: pointer;
+        }
+
+        .logout_btn{
+            padding: 5px;
+            background: bisque;
+            text-decoration: none;
+            float: right;
+            margin-top: -30px;
+            margin-right: 40px;
+            border-radius: 2px;
+            font-size: 15px;
+            font-weight: 600;
+            color: black;
+            transition: 0.5s;
+            transition-property: background;
+        }
+
+        .logout_btn:hover{
+            background: cornsilk;
+        }
+
+        .sidebar{
+            background: burlywood;
+            margin-top: 90px;
+            padding-top: 30px;
+            position: fixed;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            transition: 0.5s;
+            transition-property: left;
+        }
+
+        .sidebar .profile_image{
+            width: 100px;
+            height: 100px;
+            border-radius: 100px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar h4{
+            color: black;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .sidebar a{
+            color: black;
+            display: block;
+            width: 100%;
+            line-height: 60px;
+            text-decoration: none;
+            padding-left: 40px;
+            box-sizing: border-box;
+            transition: 0.5s;
+            transition-property: background;
+        }
+
+        .sidebar a:hover{
+            background: cornsilk;
+        }
+
+        .sidebar i{
+            padding-right: 10px;
+        }
+
+        label #sidebar_btn{
+            z-index: 1;
+            color: cornsilk;
+            position: fixed;
+            cursor: pointer;
+            left: 200px;
+            font-size: 20px;
+            margin: 5px 0;
+            transition: 0.5s;
+            transition-property: color;
+        }
+
+        label #sidebar_btn:hover{
+            color: burlywood;
+        }
+
+        #check:checked ~ .sidebar{
+            left: -190px;
+        }
+
+        #check:checked ~ .sidebar a span{
+            display: none;
+        }
+
+        #check:checked ~ .sidebar a{
+            font-size: 20px;
+            margin-left: 170px;
+            width: 80px;
+        }
+
+.content{
+    margin-left: 250px;
+    background:url("/static/Images/halfbackground.jpg") no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    transition: 0.5s;
+}
+
+.container{
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    padding-top:200px;
+    padding-left:0px;
+}
+
+.container .card{
+    position: relative;
+    cursor: pointer;
+}
+
+.container .card .face{
+    width: 300px;
+    height: 200px;
+    transition: 0.5s;
+}
+
+.container .card .face.face1{
+    position: relative;
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transform: translateY(100px);
+}
+
+.container .card:hover .face.face1{
+    background: #ff0057;
+    transform: translateY(0);
+}
+
+.container .card .face.face1 .content1{
+    opacity: 0.2;
+    transition: 0.5s;
+}
+
+.container .card:hover .face.face1 .content1{
+    opacity: 1;
+}
+
+.container .card .face.face1 .content1 img{
+    max-width: 100px;
+}
+
+.container .card .face.face1 .content1 h3{
+    margin: 10px 0 0;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.container .card .face.face2{
+    position: relative;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    transform: translateY(-100px);
+}
+
+.container .card:hover .face.face2{
+    transform: translateY(0);
+}
+
+.container .card .face.face2 .content1 p{
+    margin: 0;
+    padding: 0;
+}
+
+.container .card .face.face2 .content1 a{
+    margin: 15px 0 0;
+    display:  inline-block;
+    text-decoration: none;
+    font-weight: 900;
+    color: #333;
+    padding: 5px;
+    border: 1px solid #333;
+}
+
+.container .card .face.face2 .content1 a:hover{
+    background: #333;
+    color: #fff;
+}
+
+        #check:checked ~ .container{
+            margin-left: 60px;
+        }
+
+        #check{
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+
+{% load static %}
+
+
+<input type="checkbox" id="check">
+    <!-- header area start -->
+    <nav id="header-wrapper" class="navbar navbar-expand-lg sticky-top">
+        <label for="check">
+            <i class="fas fa-bars" id="sidebar_btn"></i>
+        </label>
+        <div class="left_area">
+            <img src="{% static 'Images/Logo.png' %}" alt="logo" class="logo">
+        </div>
+        <div class="navbar-nav ml-auto">
+            <a href="index.html" class="logout_btn" onclick="logout">Logout</a>
+        </div>
+    </nav>
+
+    <!-- header area end -->
+
+
+    <!-- slidebar start -->
+    <<div class="sidebar">
+    <script>
+            function open_profile(uname){
+                window.location.href = "./Journal.html?uname="+uname+"&uid=";
+            }
+            </script>
+        <center>
+            <img src="{% static 'Images/profile.jpg' %}" class="profile_image" alt="profile image">
+            <h4>{{uname}}</h4>
+        </center>
+        <a href="{% url 'profile1' %}?name={{uname}}&uid={{uid}}&umail={{umail}}&uphno={{uphno}}"> <i class="fas fa-book"></i><span>profile</span></a>
+        <a href="{% url 'postlist' %}?name={{uname}}&uid={{uid}}&umail={{umail}}&uphno={{uphno}}"><i class="fas fa-bookmark"></i><span>Suggetion Wall</span></a>
+        <a href="{% url 'journal' %}?name={{uname}}&uid={{uid}}&umail={{umail}}&uphno={{uphno}}"><i class="fas fa-book-reader"></i><span>Reading Journal</span></a>
+        <a href="{% url 'library' %}?name={{uname}}&uid={{uid}}&umail={{umail}}&uphno={{uphno}}"><i class="fas fa-book-reader"></i><span>Library</span></a>
+        <a href="{% url 'message' %}?name={{uname}}&uid={{uid}}&umail={{umail}}&uphno={{uphno}}"><i class="fas fa-comments"></i><span>Messages</span></a>
+        <a href="{% url 'shop' %}?name={{uname}}&uid={{uid}}&umail={{umail}}&uphno={{uphno}}"><i class="fas fa-store"></i><span>Shop</span></a>
+
+
+    </div>
+    <!-- slidebar end -->
+
+
+<!--container starts-->
+<div class="content" >
+	<div class="container">
+        	<div class="card">
+            		<div class="face face1" style="width:250px;">
+                		<div class="content1" >
+                    			<img src="{% static 'Images/journal1.png' %}">
+                    				<h3>Current Read</h3>
+                		</div>
+            		</div>
+            		<div class="face face2" style="width:250px;">
+                		<div class="content1">
+                    			<p>   Add what you are reading now.</p>
+                        		<script>
+                            			function openfile1(){
+                               				window.location.href = 'current.html?op=sell'
+                         			}
+	                        	</script>
+        	                	<a onclick="openfile1()">Add</a>
+              			</div>
+            		</div>
+        	</div>
+
+		<div class="card">
+            		<div class="face face1" style="width:250px;">
+                		<div class="content1">
+                    			<img src="{% static 'Images/journal3.jpg' %}">
+                    			<h3>You want to Read</h3>
+                		</div>
+            		</div>
+            		<div class="face face2" style="width:250px;">
+                		<div class="content1">
+                    			<p>Add what you want to read in the future.</p>
+                       			<script>
+                                		function openfile3(){
+                                			window.location.href = 'want.html'
+                            			}
+                        		</script>
+                        		<a onclick="openfile3()">Add</a>
+                		</div>
+            		</div>
+        	</div>
+
+
+		<div class="card">
+        		<div class="face face1" style="width:250px;">
+                		<div class="content1">
+                    			<img src="{% static 'Images/journal4.jpg' %}">
+                    			<h3>Miscellaneous</h3>
+                		</div>
+            		</div>
+            		<div class="face face2" style="width:250px;">
+                		<div class="content1">
+                    			<p>Any Random books you want to jot down. Do it here.</p>
+                        		<script>
+                                		function openfile2(){
+                             		   		window.location.href = 'misc.html'
+                            			}
+                        		</script>
+                        		<a onclick="openfile2()">Add</a>
+                		</div>
+            		</div>
+        	</div>
+    	</div>
+</div>
+<!--container ends-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+</body>
+</html>

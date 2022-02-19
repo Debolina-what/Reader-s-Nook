@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+</head>
+
+<body>  {% load static %}
+
+
+    <input type="checkbox" id="check">
+    <!-- header area start -->
+    <header>
+        <label for="check">
+            <i class="fas fa-bars" id="sidebar_btn"></i>
+        </label>
+        <div class="left_area">
+            <img src="{% static 'Images/Logo.png' %}" alt="logo" class="logo">
+        </div>
+        <div class="right_area">
+            <a href="index.html" class="logout_btn" onclick="logout">Logout</a>
+        </div>
+    </header>
+
+    <!-- header area end -->
+
+
+    <!-- slidebar start -->
+    <div class="sidebar">
+        <script>
+            function open_profile(uname){
+                window.location.href = "./profile.html?uname="+uname+"&uid=";
+            }
+        </script>
+        <center>
+            <img src="{% static 'Images/profile.jpg' %}" class="profile_image" alt="profile image">
+            <h4>{{uname}}</h4>
+        </center>
+        <a href="{% url 'profile1' %}?name={{uname}}&uid={{uid}}&umail={{umail}}&uphno={{uphno}}"> <i class="fas fa-book"></i><span>profile</span></a>
+        <a href="suggetion.html"><i class="fas fa-bookmark"></i><span>Suggetion Wall</span></a>
+        <a href="{% url 'journal' %}?name={{uname}}&uid={{uid}}&umail={{umail}}&uphno={{uphno}}"><i class="fas fa-book-reader"></i><span>Reading Journal</span></a>
+        <a href="{% url 'library' %}?name={{uname}}&uid={{uid}}&umail={{umail}}&uphno={{uphno}}"><i class="fas fa-book-reader"></i><span>Library</span></a>
+        <a href="{% url 'message' %}?name={{uname}}&uid={{uid}}&umail={{umail}}&uphno={{uphno}}"><i class="fas fa-comments"></i><span>Messages</span></a>
+        <a href="{% url 'shop' %}?name={{uname}}&uid={{uid}}&umail={{umail}}&uphno={{uphno}}"><i class="fas fa-store"></i><span>Shop</span></a>
+        
+    </div>
+    <!-- slidebar end -->
+    
+    <div class="content">
+
+    </div>
+
+
+</body>
+</html>

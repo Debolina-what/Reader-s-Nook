@@ -1,0 +1,47 @@
+{% load static %}
+<html>
+    <head>
+        <title>Reader's Nook</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        
+    </head>
+    <body>
+        {% load static %}
+        <div class="banner">
+        <section class="sub-header">
+            <div class="navbar">
+                <img src="{% static 'Images/Logo.png' %}" alt="logo" class="logo">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="review.html">Reviews</a></li>
+                    <li><a href="Login.html">Shop</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <!-- <h1>About Us</h1> -->
+        <!-------- about us content -------->
+        <section class="about-us">
+            <div class="row">
+                <div class="about-col">
+                    <h1>Reader's Nook is the site for readers and book recommendations.</h1>
+                    <pre>
+                        Our mission is to help people find and share books they love.
+                        We have awesome features for book lovers and a massive 
+                        community of active members. 
+                        There are lots of members!</pre>
+                    <h1>A Few Things You Can Do On Reader's Nook</h1>
+                    <pre>
+                        You can see what books your friends are reading.
+                        Track the books you're reading, have read, and want to read.
+                        Check out your personalized book recommendations. 
+                        Find out if a book is a good fit for you from our community’s reviews.</pre>
+                </div>
+                <div class="about-col">
+                    <img src="{% static 'Images/about.jpg' %}">
+                </div>
+            </div>
+        </section>
+    </section></div>
+    </body>
+</html>

@@ -1,0 +1,273 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+.banner{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75),rgba(0, 0, 0, 0.75)), url("/static/Images/lib.jpg");
+    background-size: cover;
+    background-position: center;
+}
+.navbar{
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    width: 120px;
+    cursor: pointer;
+}
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: bisque;
+    text-transform: uppercase;
+}
+.navbar ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: bisque;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+.navbar ul li:hover::after{
+    width: 100%;
+}
+.content{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: bisque;
+}
+.content h1{
+font-size: 70px;
+margin-top: 80px;
+}
+.content p{
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+}
+button{
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid bisque;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+span{
+    background: burlywood;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+button:hover span{
+    width: 100%;
+}
+button:hover{
+    border: none;
+}
+
+/* ---------- about us page ---------- */
+
+.sub-header{
+    height: 100vh;
+    width: 100%;
+   
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    
+}
+
+
+/* .sub-header h1{
+    margin-top: 50px;
+} */
+
+.about-us{
+    width: 90%;
+    padding-top: 15px;
+    height: 70%;
+    background:linear-gradient(rgba(255, 228, 196, 0.6),rgba(255, 228, 196, 0.6));
+    margin: auto;
+    /* padding-bottom: 50px; */
+}
+
+.about-col{
+    max-width: 400px;
+    color: rgb(0, 0, 0);
+    margin-top: 100px;
+    margin-left: 100px;
+}
+.about-col img{
+    height: 50%;
+    width: 20%;
+    margin: 100px 0px;
+    margin-left: 50px;
+    position:absolute;
+    bottom: 0;
+    right: 200px;
+    top:180px;
+}
+.about-col h1{
+    font-size: 20px;
+    padding-left: 10px;
+    border-left: 5px solid red;
+    /* padding-top: 20px; */
+}
+.about-col pre{
+    margin: 30px 0px;
+    font-size: 20px;
+    text-align: justify;
+}
+
+/* ---------- Contact us page ---------- */
+.contact{
+
+    position: relative;
+    min-height: 70vh;
+    padding: 0px 0px;
+    display: flex;
+    margin-right: 20px;
+    margin-left: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background:linear-gradient(rgba(255, 228, 196, 0.6),rgba(255, 228, 196, 0.6));
+}
+/*.contact .content{
+
+    max-width: 800px;
+    text-align: center;
+
+}
+.contact .content h2{
+
+    font-size: 30px;
+    font-weight: 500;
+    color: black;
+}
+.contact .content p{
+
+    font-size: 20px;
+    font-weight: 300;
+    color: black;
+}*/
+.container{
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+
+}
+.container .contactInfo{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    margin-right: 600px;
+}  
+.container .contactInfo .box{
+
+    position: relative;
+    padding: 30px 30px;
+    display: flex;
+}
+
+.container .contactInfo .box .icon{
+
+    min-width: 40px;
+    height:40px;
+    background:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 20px;
+}
+.container .contactInfo .box .text{
+    display: flex;
+    margin-left: 20px;
+    font-size: 16px;
+    color: black;
+    flex-direction: column;
+    font-weight: 300;
+}
+.container .contactInfo .box .text h3{
+
+    font-weight: 500;
+    color: blue;
+}
+.contactForm{
+
+    width: 150%;
+    padding: 80px;
+    padding-right: 200px;
+    justify-content: center;
+    background: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7));
+   margin-right: 10px;
+
+}
+.contactForm h2{
+
+        top: 120px;
+        position: absolute;
+        width: 250px;
+        color: white;
+}
+.contactForm .input-box{
+
+    width: 200%;
+    padding: 10px 0;
+    margin:10px 10px 10px 10px;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 1px solid #999;
+    outline: none;
+    background: transparent;
+}
+.contactForm .submit-btn{
+
+    width: 100%;
+    padding: 10px 50px;
+    cursor: pointer;
+    display:inline-block;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 0px;
+    background:linear-gradient(to right, #f3d993,#1c1736) ;
+    border:0;
+    outline: none;
+    border-radius: 40px;
+}

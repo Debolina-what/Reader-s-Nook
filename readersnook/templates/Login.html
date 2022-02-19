@@ -1,0 +1,81 @@
+{% load static %}
+<html>
+<head>
+        <title>Login-Registration</title>
+        <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+</head>
+<body>
+    {% load static %}
+    <div class="container">
+
+        <div class="card">
+
+            <div class="inner-box" id="card">
+
+                <div class="card-front">
+                    <h2>LOGIN</h2>
+                    <form method="post" >
+                          {% csrf_token %}
+                        <input type="text" class="input-box" name="username" placeholder="Enter Your Email Id" required>
+                        <input type="password" class="input-box" name="password" placeholder="Password" required >
+                        <button type="submit" class="submit-btn">Login</button>
+                        <input type="checkbox"><span>Remember Me</span>
+                         {% if messages %}
+                        {% for message in messages %}
+                        <h2 style="color: bisque;">{{message}}</h2>
+                        {% endfor %}
+                        {% endif %}
+                    </form>
+                    <button type="button" class="btn" onclick="openRegister()">I'm a New Reader</button>
+                    <a href="">Forgot Password</a>
+                </div>
+                <div class="card-back">
+                    <h2>REGISTER</h2>
+                    <form method="post">
+                        {% csrf_token %}
+                        <input type="text" class="input-box" name="uname" placeholder="Enter Your Name" required>
+                        <input type="text" class="input-box" name="uphno" placeholder="Enter Your Number" required>
+                        <input type="email" class="input-box" name="umail" placeholder="Enter Your Email Id" required>
+                        <input type="password" id="pwd1" class="input-box" name="upass" placeholder="Password" required>
+                        <input type="password" id="pwd2" class="input-box" name="cpass" placeholder="Confirm Password" required>
+                        <button type="submit" class="submit-btn" id="btnRegister">Register</button>
+
+                    </form>
+                    <button type="button" class="btn" onclick="openLogin()">I'm a Old Reader</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var card= document.getElementById("card")
+        function openRegister(){
+
+            card.style.transform = "rotateY(-180deg)";
+
+        }
+        function openLogin(){
+
+            card.style.transform = "rotateY(0deg)";
+
+}
+<!--// const pwd1=document.querySelector("#pwd1");-->
+<!--// const pwd2=document.querySelector("#pwd2");-->
+<!--// const pAlert=document.querySelector('form p');-->
+<!--// const btnRegister=document.querySelector('button');-->
+<!--// const btnShow=document.querySelectorAll('label i');-->
+<!--// function check()-->
+
+<!--// {-->
+<!--// let check=(pwd1.value<6);-->
+<!--// console.log(check);-->
+<!--// btnRegister.disabled=check;-->
+<!--// pwd2.disabled=check;-->
+<!--// pwd2.value='';-->
+<!--// pAlert.className='alert';-->
+
+
+<!--// }-->
+<!--// check();-->
+    </script>
+</body>
+    </html>

@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <title>Reader's Nook</title>
+       
+       <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    </head>
+
+    <body>
+        {% load static %}
+        <div class="banner">
+            <div class="navbar">
+                <img src="{% static 'Images/Logo.png' %}" alt="logo" class="logo">
+                <ul>
+                    <li><a href="templates/index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="review.html">Reviews</a></li>
+                    <li><a href="Login.html">Shop</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <h1>START READING READERS!!</h1>
+                <p> You’re in the right place. 
+                    Tell us what titles or genres you’ve enjoyed in the past,
+                    and we’ll give you surprisingly insightful recommendations</p>
+                    <div>
+                        <button type="button"><a href="Login.html" style= "text-decoration:none; color: white;"><span></span> BUY BOOK FOR YOUR NOOK</button>
+                        <button id="loginBtn" type="button"><a href="Login.html" style= "text-decoration:none; color: white;"><span></span> HELLO READER</a></button>
+                    </div>
+                <script>
+                    document.getElementById("loginBtn").addEventListener("click",()=>{
+                        location.href='Login.html'
+                    })
+                </script>
+            </div>
+        </div>
+    </body>
+</html>
